@@ -1,0 +1,50 @@
+﻿<Window x:Class="SinavTekrar.Views.OgrenciKayit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SinavTekrar.Views"
+        mc:Ignorable="d"
+        Title="OgrenciKayit" Height="700" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox Header="Bilgi Gİrişi" Margin="25,10,0,10" Padding="5" Width="500" HorizontalAlignment="Center" Grid.ColumnSpan="2">
+            <StackPanel VerticalAlignment="Center">
+                <Button x:Name="BtnYeniKayıt" Content="Yeni Kayıt" HorizontalAlignment="Right" Width="80" Height="25"></Button>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <TextBlock Margin="0 ,0 ,10, 0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Ogrenci Adı:</TextBlock>
+                    <TextBox x:Name="TbOgrenciAdı" Width="200" Margin="10,0,0,0"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <TextBlock Margin="0 ,0 ,10, 0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Ogrenci Soyadı:</TextBlock>
+                    <TextBox x:Name="TbOgrenciSoyadı" Width="200" Margin="10,0,0,0"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <TextBlock Margin="0 ,0 ,10, 0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Ogrenci Numarası:</TextBlock>
+                    <TextBox x:Name="TbOgrenciNumarası" Width="200" Margin="10,0,0,0"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <TextBlock Margin="0 ,0 ,10, 0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Ogrenci Tarihi:</TextBlock>
+                    <DatePicker x:Name="TbOgrenciTarih" Width="200" Margin="10,0,0,0" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,20">
+                    <TextBlock Margin="0 ,0 ,10, 0" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center">Ogrenci Adresi:</TextBlock>
+                    <TextBox x:Name="TbOgrenciAdres" Width="200" Margin="10,0,0,0"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button x:Name="BtnHepsiniSil" Width="80" Height="25" Margin="10" Content="Hepsini Sil" Click="BtnHepsiniSil_Click"  RenderTransformOrigin="-0.263,0.515"/>
+                    <Button x:Name="BtnEkle" Width="80" Height="25" Content="Ekle" Click="BtnEkle_Click" />
+                    <Button x:Name="BtnSil" Width="80" Height="25" Margin="10,0,0,0" Content="Sil"  Click="BtnSil_Click"/>
+                    <Button  x:Name="BtnGüncelle" Width="80" Height="25" Margin="10,0,0,0" Content="Güncelle" Click="BtnGüncelle_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+        <DataGrid x:Name="DbOgrenci" MinHeight="100" Grid.Row="1">
+            <DataGrid.Columns>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
