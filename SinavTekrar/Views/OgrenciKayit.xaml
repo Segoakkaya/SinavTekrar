@@ -42,7 +42,7 @@
                 </StackPanel>
             </StackPanel>
         </GroupBox>
-        <DataGrid x:Name="DbOgrenci" MinHeight="100" Grid.Row="1">
+        <DataGrid x:Name="DbOgrenci" MinHeight="100" Grid.Row="1" IsReadOnly="True">
             <DataGrid.Columns>
             </DataGrid.Columns>
         </DataGrid>

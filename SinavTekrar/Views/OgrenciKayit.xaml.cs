@@ -30,18 +30,33 @@ namespace SinavTekrar.Views
 
         private void DbOgrenci_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Ogrenci selectedCategorys = DbOgrenci.SelectedItem as Ogrenci;
-            TbOgrenciAdı.Text = selectedCategorys.Ad;
-            TbOgrenciSoyadı.Text = selectedCategorys.Soyad;
-            TbOgrenciNumarası.Text = selectedCategorys.Numara;
-            TbOgrenciTarih.Text = selectedCategorys.Tarih;
-            TbOgrenciAdres.Text = selectedCategorys.Adres;
+            if (DbOgrenci.SelectedItem != null)
+            {
+                Ogrenci selectedCategorys = DbOgrenci.SelectedItem as Ogrenci;
+                TbOgrenciAdı.Text = selectedCategorys.Ad;
+                TbOgrenciSoyadı.Text = selectedCategorys.Soyad;
+                TbOgrenciNumarası.Text = selectedCategorys.Numara;
+                TbOgrenciTarih.Text = selectedCategorys.Tarih;
+                TbOgrenciAdres.Text = selectedCategorys.Adres;
+            }
+            else
+            {
+                // Eğer seçili öğe yoksa, alanları temizle veya isteğinize göre başka bir işlem yapabilirsiniz.
+                TbOgrenciAdı.Text = "";
+                TbOgrenciSoyadı.Text = "";
+                TbOgrenciNumarası.Text = "";
+                TbOgrenciTarih.Text = "";
+                TbOgrenciAdres.Text = "";
+            }
         }
 
         private void Listele()
         {
             var Ogrenciler=Db.Context.Ogrenciler.ToList();
             DbOgrenci.ItemsSource = Ogrenciler;
+        }
+        private void Bosalt()
+        {
             TbOgrenciAdı.Text = "";
             TbOgrenciSoyadı.Text = "";
             TbOgrenciNumarası.Text = "";
@@ -91,6 +106,7 @@ namespace SinavTekrar.Views
                 MessageBox.Show("Kayıt Yapılırken Hata Oluştu.", "Hata", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             Listele();
+            Bosalt();
         }
 
         private void BtnSil_Click(object sender, RoutedEventArgs e)
@@ -128,6 +144,7 @@ namespace SinavTekrar.Views
                 MessageBox.Show("Güncelleme İşlemi Başarısız.", "Hata", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             Listele();
+            Bosalt();
         }
 
         private void DbOgrenci_Selected(object sender, RoutedEventArgs e)
